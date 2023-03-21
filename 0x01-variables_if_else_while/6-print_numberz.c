@@ -8,10 +8,10 @@
 int main(void)
 
 {
-	int sd;
+	int n;
 
-	for (sd = 0; sd <= 9; sd++)
-	putchar(sd);
+	for (n = 0; n <= 9; n++)
+	putchar(n);
 	putchar('\n');
 
 	return (0);
