@@ -8,16 +8,27 @@
 void jack_bauer(void)
 
 {
-	int hour, minute;
+	int a,b,c,d;
 
-	for (hour = 0; hour < 24; hour++)
+	for (a = 0; a <= 2; a++)
 	{
-	// Loop through hours
-	for (minute = 0; minute < 60; minute++)
+	for (b = 0; b <= 9; b++)
 	{
-	// Loop through minutes
-	printf("%02d:%02d\n", hour, minute);
-	// Print time in format "hh:mm"
+	if ((a <= 1 && b <= 9) || (a <= 2 && b <= 3))
+	{
+	for (c = 0; c <= 5; c++)
+	{
+	for (d = 0; d <= 9; d++)
+	{
+	_putchar(a + '0');
+	_putchar(b + '0');
+	_putchar(':');
+	_putchar(c + '0');
+	_putchar(d + '0');
+	_putchar('\n');
+	}
+	}
+	}
 	}
 	}
 }
