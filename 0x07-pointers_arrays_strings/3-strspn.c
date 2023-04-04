@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * int _strspn - gets the length of a prefix substring
+ * _strspn - gets the length of a prefix substring
  * @s: the string
  * @accept: accept
  * Return: the number of bytes in the initial segment of s
