@@ -1,8 +1,9 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_chessboard - prints the chessboard
- * @a: an array
+ * @a: array
  * Return: back
  */
 
