@@ -4,7 +4,7 @@
  * factorial - returns the factorial of a given number
  * @n: the number
  * Factorial(0): 1
- * Return: If n is lower than 0, the function should return -1 
+ * Return: If n is lower than 0, the function should return -1
  * to indicate an error
  */
 
