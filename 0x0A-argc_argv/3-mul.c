@@ -6,7 +6,7 @@
  * main - Write a program that multiplies two numbers
  * @argc: argument count
  * @argv: argument vector
- * Return: back
+ * Return: return 0 if the program receives two arguments, if not return 1
  */
 
 int main(int argc, char *argv[])
