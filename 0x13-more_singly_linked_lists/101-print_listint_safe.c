@@ -14,7 +14,7 @@
 const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 {
 	const listint_t **newlist;
-	size_t n;
+	size_t i;
 
 	newlist = malloc(size * sizeof(listint_t *));
 	if (newlist == NULL)
@@ -22,9 +22,9 @@ const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 		free(list);
 		exit(98);
 	}
-	for (n = 0; n < size - 1; n++)
-		newlist[n] = list[n];
-	newlist[n] = new;
+	for (i = 0; i < size - 1; i++)
+		newlist[i] = list[i];
+	newlist[i] = new;
 	free(list);
 	return (newlist);
 }
@@ -38,25 +38,25 @@ const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t n, count = 0;
+	size_t i, nm = 0;
 	const listint_t **list = NULL;
 
 	while (head != NULL)
 	{
-		for (n = 0; n < count; n++)
+		for (i = 0; i < nm; i++)
 		{
-		if (head == list[n])
+		if (head == list[i])
 		{
 			printf("-> [%p] %d\n", (void *)head, head->n);
 			free(list);
-			return (count);
+			return (nm);
 		}
 		}
-		count++;
-		list = _r(list, count, head);
+		nm++;
+		list = _r(list, nm, head);
 		printf("-> [%p] %d\n", (void *)head, head->n);
 		head = head->next;
 	}
 	free(list);
-	return (count);
+	return (nm);
 }
