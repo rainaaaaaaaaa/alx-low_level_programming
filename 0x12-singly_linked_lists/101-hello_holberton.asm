@@ -1,18 +1,12 @@
-section .data
-    hello db 'Hello, Holberton', 0   ; null-terminated string
-
-section .text
-    global main
-    extern printf
+section         .text
+        extern  printf
+        global  main
 
 main:
-    push rbp
-    mov rbp, rsp
+        mov             edi, msg
+        mov             eax, 0
+        call    printf
 
-    lea rdi, [hello]    ; load the address of hello string into rdi
-    xor eax, eax        ; clear eax register
-    call printf         ; call printf function to print hello string
 
-    mov rsp, rbp
-    pop rbp
-    ret
+section         .data
+        msg db "Hello, Holberton", 0xa, 0
