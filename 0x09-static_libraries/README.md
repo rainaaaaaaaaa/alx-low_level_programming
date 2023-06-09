@@ -1,1 +1,3 @@
+#!/bin/bash
+
 Static libraries
