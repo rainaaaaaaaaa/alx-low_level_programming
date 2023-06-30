@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-void print_before_main(void) __attribute__((constructor));
+void _constructor(void) __attribute__((constructor));
 
 /**
- * print_before_main - Prints the desired text before the main function is executed.
+ * _constructor - Prints the desired text before the main function is executed.
  */
-void print_before_main(void)
+void _constructor(void)
 {
 	printf("You're beat! and yet, you must allow,\n"
 			"I bore my house upon my back!\n");
