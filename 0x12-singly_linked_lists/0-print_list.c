@@ -1,4 +1,3 @@
-#include <stddef.h>  // for size_t
 #include "lists.h"
 
 /**
@@ -14,44 +13,13 @@ size_t print_list(const list_t *h)
     while (h != NULL)
     {
         if (h->str != NULL)
-        {
-            print_string(h->str);
-            print_char('\n');
-        }
+            printf("[%u] %s\n", h->len, h->str);
         else
-        {
-            print_string("[0] (nil)");
-            print_char('\n');
-        }
+            printf("[0] (nil)\n");
 
         h = h->next;
         count++;
     }
 
-    return count;
+    return (count);
 }
-
-/**
- * print_string - Prints a string.
- * @str: The string to print.
- */
-void print_string(const char *str)
-{
-    size_t i = 0;
-
-    while (str[i] != '\0')
-    {
-        print_char(str[i]);
-        i++;
-    }
-}
-
-/**
- * print_char - Prints a character.
- * @c: The character to print.
- */
-void print_char(char c)
-{
-    write(1, &c, 1);
-}
-
