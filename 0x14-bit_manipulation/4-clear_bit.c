@@ -1,4 +1,3 @@
-/* bit_manipulation_functions_5.c */
 #include "main.h"
 
 /**
