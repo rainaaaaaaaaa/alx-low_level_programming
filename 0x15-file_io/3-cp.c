@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
-		dprintf(2, "Error: Can't close fd\n");
+		dprintf(2, "Error: Can't close file descriptors\n");
 		return (100);
 	}
 
