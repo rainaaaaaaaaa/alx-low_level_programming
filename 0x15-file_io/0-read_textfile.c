@@ -28,7 +28,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	total_read = 0;
 	while (letters > 0)
 	{
-		num_read = read(fd, buffer, sizeof(buffer) < letters ? sizeof(buffer) : letters);
+		num_read = read(fd, buffer, sizeof(buffer) < letters ? sizeof(buffer)
+				: letters);
 		if (num_read == -1)
 		{
 			perror("Error reading from the file");
