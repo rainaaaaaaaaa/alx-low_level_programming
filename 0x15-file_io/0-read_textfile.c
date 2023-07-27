@@ -11,7 +11,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	char buffer[1024];
+	char *buffer;
 	ssize_t total_read = 0;
 	ssize_t num_read;
 	ssize_t num_written;
@@ -24,15 +24,21 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		perror("Error opening the file");
 		return (0);
 	}
+	buffer = malloc(letters);
+	if (buffer == NULL)
+	{
+		perror("Memory allocation failed");
+		close(fd);
+		return (0);
+	}
 
-	total_read = 0;
 	while (letters > 0)
 	{
-		num_read = read(fd, buffer, sizeof(buffer) < letters ? sizeof(buffer)
-				: letters);
+		num_read = read(fd, buffer, letters);
 		if (num_read == -1)
 		{
 			perror("Error reading from the file");
+			free(buffer);
 			close(fd);
 			return (total_read);
 		}
@@ -48,6 +54,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		total_read += num_read;
 		letters -= num_read;
 	}
+	free(buffer);
 	close(fd);
 	return (total_read);
 }
