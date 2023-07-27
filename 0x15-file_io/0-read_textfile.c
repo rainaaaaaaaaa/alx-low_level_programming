@@ -12,7 +12,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char buffer[1024];
-	ssize_t total_read;
+	ssize_t total_read = 0;
 	ssize_t num_read;
 	ssize_t num_written;
 
@@ -33,7 +33,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			perror("Error reading from the file");
 			close(fd);
-			return (0);
+			return (total_read);
 		}
 		if (num_read == 0)
 			break;
@@ -42,7 +42,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			perror("Error writing to STDOUT");
 			close(fd);
-			return (0);
+			return (total_read);
 		}
 		total_read += num_read;
 		letters -= num_read;
