@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 #define READ_BUFFER_SIZE 1024
 
