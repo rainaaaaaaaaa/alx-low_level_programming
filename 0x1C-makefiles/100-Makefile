@@ -1,31 +1,20 @@
-# Variables
+.PHONY : all clean oclean fclean re
+
 CC = gcc
 SRC = main.c school.c
-OBJ = main.o school.o
+OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Rules
-all: $(NAME)
-
-$(NAME): $(OBJ)
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) *~ \#*\# $(NAME)
+	$(RM) *~ $(NAME)
 
 oclean:
-	$(RM) main.o school.o
+	$(RM) $(OBJ)
 
-fclean: clean oclean
+fclean: oclean clean
 
-re: fclean all
-
-# Compile source files to object files
-main.o: main.c m.h
-	$(CC) -c main.c
-
-school.o: school.c m.h
-	$(CC) -c school.c
-
-.PHONY: all clean oclean fclean re
+re: oclean all
